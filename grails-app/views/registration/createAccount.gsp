@@ -65,15 +65,8 @@
                 <g:if test="${!edit}">
                     <h2>${message(code:"createAccount.info1", default:"Do I need to create an account?")}</h2>
 
-                    <p>${message(code:"createAccount.info2", default:"If you already have an account with an institution that participates in the Australian Access Federation or an account with Google, Facebook or Twitter we highly recommend login using it instead as that will:")}
+                    <p>${message(code:"createAccount.info2", default:"We recommend to register in order to use all the features of the application.")}
 
-                    <ul>
-                    <li>${message(code:"createAccount.info.li1", default:"Save you typing the basic information like your name and email address that you already have with one of those accounts.")}
-                    <li>${message(code:"createAccount.info.li2", default:"You don't have to set and remember yet another password.")}
-                    <li>${message(code:"createAccount.info.li3", default:"Your account will be activated without going through verification emails")}
-                    <li>${message(code:"createAccount.info.li4", default:"Overall you will save time")}
-                    </ul>
-                    <p>${message(code:"createAccount.info3", default:"Of course if you don't have an account with such providers or prefer to use a different email you still can create an account with us by filling in the information on the left.")}
                 </g:if>
                 <h2>${message(code:"createAccount.info.yourAccount.header", default:"Your account")}</h2>
                 <p>

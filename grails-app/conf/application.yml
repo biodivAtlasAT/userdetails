@@ -175,6 +175,7 @@ skin:
     orgNameShort: "BAÖ"
 privacyPolicy: "https://biodiversityatlas.at/datenschutzerklaerung/"
 termsOfUse: "https://biodiversityatlas.at/nutzungsbedingungen/"
+supportEmail: "support@biodiversityatlas.at"
 
 headerAndFooter:
   baseURL: "https://core.biodiversityatlas.at"

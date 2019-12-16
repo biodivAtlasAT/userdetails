@@ -7,7 +7,7 @@
     <asset:stylesheet src="application.css" />
 </head>
 <body>
-<div class="row">
+<div class="row" style="padding-left:20px">
     <h1>
         ${message(code:"accountCreated.header", default:"Please check your email to activate your account and complete the registration process!")}
     </h1>

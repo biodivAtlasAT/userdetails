@@ -18,7 +18,7 @@ class EmailService {
         }
 
         if (!emailBody) {
-            emailBody = "Please click the link below to reset your ALA password.  This will take you to a form where you can provide a new password for your account."
+            emailBody = "Please click the link below to reset your password.  This will take you to a form where you can provide a new password for your account."
         }
         try {
             sendMail {
@@ -38,7 +38,7 @@ class EmailService {
     def sendAccountActivation(user, authKey){
         sendMail {
           from grailsApplication.config.emailSenderTitle+"<" + grailsApplication.config.emailSender + ">"
-          subject "Activate your account"
+          subject "Zugangsaktivierung"
           to user.email
           body (view: '/email/activateAccount',
                 plugin:"email-confirmation",

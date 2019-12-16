@@ -5,72 +5,42 @@
     <meta name="layout" content="${grailsApplication.config.skin.layout}"/>
     <meta name="section" content="home"/>
     <meta name="breadcrumb" content="My Profile" />
-    <title>My profile | ${grailsApplication.config.skin.orgNameLong}</title>
+    <title>${message(code:"myprofile.title", default:"My profile")} | ${grailsApplication.config.skin.orgNameLong}</title>
     <asset:stylesheet src="application.css" />
 </head>
 <body>
 
 <div class="row">
     <div class="col-md-6">
-        <h1>Hello ${user.firstName} !</h1>
+        <h1>${message(code:"myprofile.header.hello", default:"Hello")} ${user.firstName} !</h1>
         <ul class="userdetails-menu">
             <li>
                 <g:link controller="registration" action="editAccount">
-                     Update your profile
+                    ${message(code:"myprofile.items.updateProfile", default:"Update your profile")}
                 </g:link>
             </li>
             <li>
-                <a href="${grailsApplication.config.sightings.url}">
-                     View your timeline of sightings recorded through the Atlas
-                </a>
-            </li>
-            <li>
-                <a href="${grailsApplication.config.spatial.url}">
-                    Tabulate and graph all functions you've used in the Spatial Portal
-                </a>
-            </li>
-            <li>
-                <a href="${grailsApplication.config.volunteer.url}">
-                    View your tasks on the DigiVol Portal
-                </a>
-            </li>
-            <li>
                 <a href="${grailsApplication.config.lists.url}">
-                    View your uploaded species lists
-                </a>
-            </li>
-            <li>
-                <a href="${grailsApplication.config.biocache.search.url}%22${user.id}%22">
-                    View records you have annotated
-                </a>
-            </li>
-            <li>
-                <a href="${grailsApplication.config.biocache.myDownloads.url}">
-                    View your downloaded records
-                </a>
-            </li>
-            <li>
-                <a href="${grailsApplication.config.alerts.url}">
-                    Manage your alerts
+                    ${message(code:"myprofile.items.updloadesLists", default:"View your uploaded species lists")}
                 </a>
             </li>
             <li>
                 <g:link controller="registration" action="forgottenPassword">
-                    Reset my password
+                    ${message(code:"myprofile.items.resetPassword", default:"Reset my password")}
                 </g:link>
             </li>
 
             <g:if test="${isAdmin}">
             <li>
                 <g:link controller="admin">
-                    Admin tools
+                    ${message(code:"myprofile.items.adminTools", default:"Admin tools")}
                 </g:link>
             </li>
             </g:if>
         </ul>
 
-        <h3>External site linkages</h3>
         <g:if test="${Holders.config.getProperty('oauth.providers.flickr.enabled', Boolean, true)}">
+        <h3>External site linkages</h3>
         <div class="well well-small">
             <h4>Flickr</h4>
             <g:if test="${props.flickrUsername}">

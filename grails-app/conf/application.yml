@@ -5,9 +5,9 @@ grails:
         defaultPackage: au.org.ala.userdetails
     config:
         locations:
-            - fileee:/data/userdetails/config/userdetails-config.properties
-            - fileee:/data/userdetails/config/userdetails-config.yml
-            - fileee:/data/userdetails/config/userdetails-config.groovy
+            - file:/data/userdetails/config/userdetails-config.properties
+            - file:/data/userdetails/config/userdetails-config.yml
+            - file:/data/userdetails/config/userdetails-config.groovy
     spring:
         transactionManagement:
             proxies: false
@@ -185,7 +185,7 @@ oauth:
 #  debug: true
   providers:
     flickr:
-      enabled: true
+      enabled: false
       api: 'com.github.scribejava.apis.FlickrApi'
       key: "xxxxxxxxxxxxxxxxxxxxx"
       secret: "xxxxxxxxxxxxxxxxxxxxx"

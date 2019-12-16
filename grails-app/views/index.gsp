@@ -3,7 +3,7 @@
 <head>
     <meta name="layout" content="${grailsApplication.config.skin.layout}"/>
     <meta name="section" content="home"/>
-    <title>${grailsApplication.config.skin.orgNameShort} accounts</title>
+    <title>${grailsApplication.config.skin.orgNameShort} ${message(code:"index.accounts.accounts.title", default:"accounts")}</title>
     <asset:stylesheet src="application.css" />
 </head>
 <body>
@@ -19,17 +19,17 @@
             </div>
         </g:if>
 
-        <h1>${grailsApplication.config.skin.orgNameShort} accounts</h1>
+        <h1>${grailsApplication.config.skin.orgNameShort}  ${message(code:"index.accounts.header", default:"accounts")}</h1>
         <ul class="userdetails-menu">
-            <li><g:link controller="registration" action="createAccount">Create a new account</g:link></li>
-            <li><g:link controller="registration" action="forgottenPassword">Reset my password</g:link></li>
-            <li><g:link controller="profile">My profile</g:link></li>
+            <li><g:link controller="registration" action="createAccount">${message(code:"index.accounts.newAccount", default:"Create a new account")}</g:link></li>
+            <li><g:link controller="registration" action="forgottenPassword">${message(code:"index.accounts.passwordReset", default:"Reset my password")}</g:link></li>
+            <li><g:link controller="profile">${message(code:"index.accounts.myProfile", default:"My profile")}</g:link></li>
         </ul>
 
     </div>
     <auth:ifAllGranted roles="ROLE_ADMIN">
         <div style="color:white;" class="pull-right">
-            <g:link style="color:#DDDDDD; font-weight:bold;" controller="admin">Admin tools (${grailsApplication.config.skin.orgNameShort} administrators only)</g:link>
+            <g:link style="color:#DDDDDD; font-weight:bold;" controller="admin">${message(code:"index.accounts.adminTools", default:"Admin tools")} (${grailsApplication.config.skin.orgNameShort} ${message(code:"index.accounts.adminOnly", default:"administrators only")})</g:link>
         </div>
     </auth:ifAllGranted>
 </div>

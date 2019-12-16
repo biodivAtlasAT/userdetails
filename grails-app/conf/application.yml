@@ -5,9 +5,9 @@ grails:
         defaultPackage: au.org.ala.userdetails
     config:
         locations:
-            - file:/data/userdetails/config/userdetails-config.properties
-            - file:/data/userdetails/config/userdetails-config.yml
-            - file:/data/userdetails/config/userdetails-config.groovy
+            - fileee:/data/userdetails/config/userdetails-config.properties
+            - fileee:/data/userdetails/config/userdetails-config.yml
+            - fileee:/data/userdetails/config/userdetails-config.groovy
     spring:
         transactionManagement:
             proxies: false
@@ -171,10 +171,14 @@ attributes:
 skin:
     layout: "ala-main"
     fluidLayout: false
-    orgNameLong: "Atlas of Living Australia"
-    orgNameShort: "ALA"
-privacyPolicy: "https://www.ala.org.au/privacy-policy/"
-termsOfUse: "https://www.ala.org.au/terms-of-use/"
+    orgNameLong: "Biodiversitätsatlas Österreich"
+    orgNameShort: "BAÖ"
+privacyPolicy: "https://biodiversityatlas.at/datenschutzerklaerung/"
+termsOfUse: "https://biodiversityatlas.at/nutzungsbedingungen/"
+
+headerAndFooter:
+  baseURL: "https://core.biodiversityatlas.at"
+
 
 oauth:
 #  debug: true
@@ -217,14 +221,14 @@ recaptcha:
 environments:
     development:
         grails:
-            serverURL: "http://devt.ala.org.au:8080/userdetails"
+            serverURL: "http://localhost:8080/userdetails"
             mail:
                 host: "localhost"
                 port: 1025
                 username: postie.emailSender
         security:
             cas:
-                appServerName: "http://devt.ala.org.au:8080"
+                appServerName: "https://auth.biodiversityatlas.at/cas"
     test:
         security:
             cas:
@@ -237,7 +241,7 @@ environments:
                 port: 25
         security:
             cas:
-                appServerName: "http://auth.ala.org.au"
+                appServerName: "https://auth.biodiversityatlas.at"
 
 ---
 hibernate:

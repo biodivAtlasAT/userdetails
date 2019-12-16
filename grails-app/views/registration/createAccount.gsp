@@ -4,11 +4,11 @@
     <meta name="layout" content="${grailsApplication.config.skin.layout}"/>
     <meta name="section" content="home"/>
     <g:if test="${!alreadyRegistered && edit}">
-        <g:set var="title">Edit your account</g:set>
+        <g:set var="title">${message(code:"createAccount.title.editAccount", default:"Edit your account")}</g:set>
         <meta name="breadcrumbParent" content="${g.createLink(controller: 'profile')},My Profile" />
     </g:if>
     <g:else>
-        <g:set var="title">Create your account</g:set>
+        <g:set var="title">${message(code:"createAccount.title.createAccount", default:"Create your account")}</g:set>
     </g:else>
     <title>${title}</title>
     <asset:stylesheet src="application.css" />
@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<div class="row">
+<div class="row" style="padding-left:20px; padding-right:10px">
     <h1>${title}</h1>
     <g:if test="${flash.message}">
         <div class="alert alert-warning">
@@ -30,12 +30,12 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="well">
-                    <p class="text-danger">A user is already registered with the email address <strong>${params.email}</strong> however it is currently disabled.
+                    <p class="text-danger">${message(code:"createAccount.inactiveUser.part1", default:"A user is already registered with the email address ")}<strong>${params.email}</strong> ${message(code:"createAccount.inactiveUser.part2", default:" however it is currently disabled.")}
                     </p>
 
                     <p>
-                        If you think this is an error or you disabled your account please contact <a
-                            href="mailto:${grailsApplication.config.supportEmail}">${grailsApplication.config.supportEmail}</a>.
+                        ${message(code:"createAccount.inactiveUser.supportEmailMessage", default:"If you think this is an error or you disabled your account please contact ")}
+                         <a href="mailto:${grailsApplication.config.supportEmail}">${grailsApplication.config.supportEmail}</a>.
                     </p>
                 </div>
             </div>
@@ -45,14 +45,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="well">
-                    <p class="text-danger">A user is already registered with the email address <strong>${params.email}</strong>.</p>
+                    <p class="text-danger">${message(code:"createAccount.userAlreadyExists", default:"A user is already registered with the email address ")}<strong>${params.email}</strong>.</p>
 
                     <p>
-                        To login with this user name, <a
+                        ${message(code:"createAccount.userAlreadyExists.info1", default:"To login with this user name, ")}<a
                             href="${grailsApplication.config.security.cas.loginUrl}">click here</a>.<br/>
-                        To start the process of resetting your password, <g:link controller="registration"
+                        ${message(code:"createAccount.userAlreadyExists.info2", default:"To start the process of resetting your password, ")}<g:link controller="registration"
                                                                                  action="forgottenPassword"
-                                                                                 params="${[email: params.email]}">click here</g:link>.
+                                                                                 params="${[email: params.email]}">${message(code:"createAccount.userAlreadyExists.info3", default:"click here")}</g:link>.
                     </p>
                 </div>
             </div>
@@ -63,36 +63,33 @@
         <div class="col-md-8 col-md-push-4">
             <div class="well">
                 <g:if test="${!edit}">
-                    <h2>Do I need to create an account?</h2>
+                    <h2>${message(code:"createAccount.info1", default:"Do I need to create an account?")}</h2>
 
-                    <p>If you already have an account with an institution that participates in the Australian Access Federation or an account with Google, Facebook or Twitter we highly recommend login using it instead as that will:
+                    <p>${message(code:"createAccount.info2", default:"If you already have an account with an institution that participates in the Australian Access Federation or an account with Google, Facebook or Twitter we highly recommend login using it instead as that will:")}
 
                     <ul>
-                    <li>Save you typing the basic information like your name and email address that you already have with one of those accounts.
-                    <li>You don't have to set and remember yet another password.
-                    <li>Your account will be activated without going through verification emails
-                    <li>Overall you will save time
+                    <li>${message(code:"createAccount.info.li1", default:"Save you typing the basic information like your name and email address that you already have with one of those accounts.")}
+                    <li>${message(code:"createAccount.info.li2", default:"You don't have to set and remember yet another password.")}
+                    <li>${message(code:"createAccount.info.li3", default:"Your account will be activated without going through verification emails")}
+                    <li>${message(code:"createAccount.info.li4", default:"Overall you will save time")}
                     </ul>
-                    <p>Of course if you don't have an account with such providers or prefer to use a different email you still can create an account with us by filling in the information on the left.
+                    <p>${message(code:"createAccount.info3", default:"Of course if you don't have an account with such providers or prefer to use a different email you still can create an account with us by filling in the information on the left.")}
                 </g:if>
-                <h2>Your account</h2>
+                <h2>${message(code:"createAccount.info.yourAccount.header", default:"Your account")}</h2>
                 <p>
-                    Your email address will be your ALA account login.
+                    ${message(code:"createAccount.info.yourAccount.info", default:"Your email address will be your ALA account login.")}
                 </p>
                 <g:if test="${!edit}">
-                    <p>An &quot;account activation&quot; link will be
-                    emailed to the address provided. You need click this link, in order to complete the
-                    registration process. Note, you may need to check you spam/junk mail folder, as activation emails
-                    sometimes get caught by mail filters.
+                    <p>${message(code:"createAccount.info.activationLink", default:"An &quot;account activation&quot; link will be emailed to the address provided. You need click this link, in order to complete the registration process. Note, you may need to check you spam/junk mail folder, as activation emails sometimes get caught by mail filters.")}
                 </g:if>
-                <h2>Privacy policy</h2>
+                <h2>${message(code:"createAccount.privacyPolicy.header", default:"Privacy policy")}</h2>
                 <p>
-                    For the Atlas' policy on the collection and use of personal information see our
-                    <a href="${grailsApplication.config.privacyPolicy}">Privacy Policy</a>.
+                    ${message(code:"createAccount.privacyPolicy.info", default:"For the Atlas' policy on the collection and use of personal information see our ")}
+                    <a href="${grailsApplication.config.privacyPolicy}">${message(code:"createAccount.privacyPolicy.link", default:"Privacy Policy")}</a>.
                 </p>
-                <h2>Terms of use</h2>
+                <h2>${message(code:"createAccount.termsOfUse.header", default:"Terms of use")}</h2>
                 <p>
-                    For the Atlas' terms of use see our <a href="${grailsApplication.config.termsOfUse}">Terms of Use</a>
+                    ${message(code:"createAccount.termsOfUse.header.info", default:"For the Atlas' terms of use see our ")}<a href="${grailsApplication.config.termsOfUse}"> ${message(code:"createAccount.termsOfUse.header.link", default:"Terms of Use")}</a>
                 </p>
             </div>
         </div>
@@ -100,90 +97,90 @@
             <div>
             <g:form name="updateAccountForm" method="POST" action="${edit ? 'update' : 'register'}" controller="registration" useToken="true" onsubmit="updateAccountSubmit.disabled = true; return true;">
                 <div class="form-group">
-                    <label for="firstName">First name</label>
+                    <label for="firstName">${message(code:"createAccount.firstName", default:"First name")}</label>
                     <input id="firstName" name="firstName" type="text" class="form-control" value="${user?.firstName}" data-validation-engine="validate[required]"/>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Last name</label>
+                    <label for="lastName">${message(code:"createAccount.lastName", default:"Last name")}</label>
                     <input id="lastName" name="lastName" type="text" class="form-control" value="${user?.lastName}"  data-validation-engine="validate[required]"/>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email address</label>
+                    <label for="email">${message(code:"createAccount.emailAddress", default:"Email address")}</label>
                     <input id="email" name="email" type="text" class="form-control" value="${user?.email}"
                            data-validation-engine="validate[required,custom[email]]"
-                           data-errormessage-value-missing="Email is required!"
+                           data-errormessage-value-missing="${message(code:'createAccount.emailAddressRequired', default:'Email is required!')}"
                     />
                 </div>
 
                 <g:if test="${!edit}">
                     <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">${message(code:'createAccount.password', default:'Password')}</label>
                     <input id="password"
                            name="password"
                            class="form-control"
                            value=""
                            data-validation-engine="validate[required, minSize[8]]"
-                           data-errormessage-value-missing="Password is required!"
+                           data-errormessage-value-missing="${message(code:'createAccount.passwordIsRequired', default:'Password is required!')}"
                            type="password"
                     />
                     </div>
                     <div class="form-group">
-                    <label for="reenteredPassword">Reentered password</label>
+                    <label for="reenteredPassword">${message(code:'createAccount.passwordReentered', default:'Reentered password')}</label>
                     <input id="reenteredPassword"
                            name="reenteredPassword"
                            class="form-control"
                            value=""
                            data-validation-engine="validate[required, minSize[8]]"
-                           data-errormessage-value-missing="Password is required!"
+                           data-errormessage-value-missing="${message(code:'createAccount.passwordIsRequired', default:'Password is required!')}"
                            type="password"
                     />
                     </div>
                 </g:if>
                 <div class="form-group">
-                    <label for="organisation">Organisation</label>
+                    <label for="organisation">${message(code:'createAccount.oraginsation', default:'Organisation')}</label>
                     <input id="organisation" name="organisation" type="text" class="form-control" value="${props?.organisation}"/>
                 </div>
                 <div class="form-group">
-                    <label for="country">Country</label>
+                    <label for="country">${message(code:'createAccount.country', default:'Country')}</label>
                     <g:select id="country" name="country"
                               class="form-control chosen-select"
-                              value="${props?.country ?: 'AU'}"
+                              value="${props?.country ?: 'AT'}"
                               keys="${l.countries()*.isoCode}"
                               from="${l.countries()*.name}"
-                              noSelection="['':'-Choose your country-']"
+                              noSelection="['':message(code:'createAccount.choseYourCountry', default:'- Choose your country -')]"
                               valueMessagePrefix="ala.country."
                     />
                 </div>
                 <div class="form-group">
-                    <label for="state">State / province</label>
+                    <label for="state">${message(code:'createAccount.stateProvince', default:'State / province')}</label>
                     <g:select id="state" name="state"
                               class="form-control chosen-select"
                               value="${props?.state}"
-                              keys="${l.states(country: props?.country ?: 'AU')*.isoCode}"
-                              from="${l.states(country: props?.country ?: 'AU')*.name}"
-                              noSelection="['':'-Choose your state-']"
+                              keys="${l.states(country: props?.country ?: 'AT')*.isoCode}"
+                              from="${l.states(country: props?.country ?: 'AT')*.name}"
+                              noSelection="['':message(code:'createAccount.choseYourStateProvince', default:'- Choose your state -')]"
                               valueMessagePrefix="ala.state."
                     />
                 </div>
                 <div class="form-group">
-                    <label for="city">City</label>
+                    <label for="city">${message(code:'createAccount.city', default:'City')}</label>
                     <input id="city" name="city" type="text" class="form-control" value="${props?.city}" />
                 </div>
                 <g:if test="${edit}">
-                    <button id="updateAccountSubmit" class="btn btn-primary">Update account</button>
-                    <button id="disableAccountSubmit" class="btn btn-danger">Disable account</button>
+                    <button id="updateAccountSubmit" class="btn btn-primary">${message(code:'createAccount.updateAccount', default:'Update account')}</button>
+                    <button id="disableAccountSubmit" class="btn btn-danger">${message(code:'createAccount.disableAccount', default:'Disable account')}</button>
                 </g:if>
                 <g:else>
                     <g:if test="${grailsApplication.config.recaptcha.siteKey}">
                         <div class="g-recaptcha" data-sitekey="${grailsApplication.config.recaptcha.siteKey}"></div>
                         <br/>
                     </g:if>
-                    <button id="updateAccountSubmit" class="btn btn-primary">Create account</button>
+                    <button id="updateAccountSubmit" class="btn btn-primary">${message(code:'createAccount.createAccount', default:'Create account')}</button>
                 </g:else>
             </g:form>
             </div>
             <g:if test="${flash.invalidToken}">
-                Please don't click the button twice.
+                ${message(code:"createAccount.buttonTwice", default:"Please don't click the button twice.")}
             </g:if>
         </div>
    </div>
@@ -201,7 +198,7 @@
 
             var pm = $('#password').val() == $('#reenteredPassword').val();
             if(!pm){
-                alert("The supplied passwords do not match!");
+                alert("${message(code:"createAccount.passwordsDoNotMatch", default:"The supplied passwords do not match!")}");
             }
 
             var valid = $('#updateAccountForm').validationEngine('validate');

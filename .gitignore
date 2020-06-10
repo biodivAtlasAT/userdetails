@@ -136,3 +136,5 @@ hs_err_pid*
 # Gradle
 .gradle/
 build/
+/grails-app/controllers/META-INF/MANIFEST.MF
+/META-INF/MANIFEST.MF

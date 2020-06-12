@@ -3,7 +3,7 @@
 <head>
     <meta name="layout" content="${grailsApplication.config.skin.layout}"/>
     <meta name="section" content="home"/>
-    <title>Please supply your new password</title>
+    <title><g:message code="password.reset.title" /></title>
     <asset:stylesheet src="application.css" />
 </head>
 <body>
@@ -22,7 +22,7 @@
                 if($('#reenteredPassword').val() != $('#password').val()) {
                     event.preventDefault();
                     processingPasswordReset = false;
-                    alert("The supplied passwords do not match!")
+                    alert('<g:message code="password.reset.password.missmatch" />');
                     $('#submitResetBtn').removeAttr('disabled');
                 }
             }
@@ -34,14 +34,14 @@
 </asset:script>
 
 <div class="row">
-    <h1>Please supply your new password</h1>
+    <h1><g:message code="password.reset.description" /></h1>
 
     <g:hasErrors>
-    <div class="alert alert-danger">
-        <g:eachError var="err">
-            <p><g:message error="${err}"/></p>
-        </g:eachError>
-    </div>
+        <div class="alert alert-danger">
+            <g:eachError var="err">
+                <p><g:message error="${err}"/></p>
+            </g:eachError>
+        </div>
     </g:hasErrors>
 
     <div class="row">
@@ -51,18 +51,18 @@
             <input id="userId" type="hidden" name="userId" value="${user.id}"/>
 
             <div class="form-group">
-                <label for="password">Your new password</label>
+                <label for="password"><g:message code="password.reset.enter.password" /></label>
                 <input id="password" type="password" class="form-control" name="password" value=""/>
             </div>
 
             <div class="form-group">
-                <label for="reenteredPassword">Re-enter Password</label>
+                <label for="reenteredPassword"><g:message code="password.reset.re.enter.password" /></label>
                 <input id="reenteredPassword" type="password" class="form-control" name="reenteredPassword" value=""/>
             </div>
 
-            <button id="submitResetBtn" class="btn btn-primary">Set my password</button>
+            <button id="submitResetBtn" class="btn btn-primary"><g:message code="password.reset.set.btn" /></button>
         </g:form>
-   </div>
+    </div>
 </div>
 </body>
 </html>

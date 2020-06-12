@@ -1,17 +1,16 @@
 <%@ page contentType="text/html"%>
 <html>
-  <head><title>Accessing your account</title></head>
-  <body>
-    <h1>Accessing your account</h1>
-    <p>
-        Below is a generated password you can use to log into your account.
-        It is recommended that you reset your password.
-    </p>
-    <p>
-      ${generatedPassword}
-    </p>
-    <p>
-       To login, <a href="${link}">click here</a>.
-    </p>
-  </body>
+<head><title><g:message code="accessing.account.title" /></title></head>
+<body>
+<h1><g:message code="accessing.account.header" /></h1>
+<p>
+    <g:message code="accessing.account.description" />
+</p>
+<p>
+    ${generatedPassword}
+</p>
+<p>
+    <g:message code="accessing.account.link" args="[link]" />
+</p>
+</body>
 </html>

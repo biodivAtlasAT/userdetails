@@ -32,7 +32,8 @@ class RoleBasedInterceptor {
 
                     if (!inRole) {
                         log.warn("Denying access to $controllerName, $actionName to ${request?.userPrincipal?.name}")
-                        flash.message = "Access denied: User does not have required permission."
+                        //flash.message = "Access denied: User does not have required permission."
+                        flash.message = message(code: 'default.access.denied')
                         redirect(uri: '/')
                         result = false
                     }

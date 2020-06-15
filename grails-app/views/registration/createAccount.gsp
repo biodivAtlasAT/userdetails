@@ -49,7 +49,7 @@
 
                     <p>
                         ${message(code:"createAccount.userAlreadyExists.info1", default:"To login with this user name, ")}<a
-                            href="${grailsApplication.config.security.cas.loginUrl}">click here</a>.<br/>
+                            href="${grailsApplication.config.security.cas.loginUrl}">${message(code:"createAccount.userAlreadyExists.info3", default:"click here")}</a>.<br/>
                         ${message(code:"createAccount.userAlreadyExists.info2", default:"To start the process of resetting your password, ")}<g:link controller="registration"
                                                                                  action="forgottenPassword"
                                                                                  params="${[email: params.email]}">${message(code:"createAccount.userAlreadyExists.info3", default:"click here")}</g:link>.
@@ -141,7 +141,7 @@
                               keys="${l.countries()*.isoCode}"
                               from="${l.countries()*.name}"
                               noSelection="['':message(code:'createAccount.choseYourCountry', default:'- Choose your country -')]"
-                              valueMessagePrefix="ala.country."
+                              valueMessagePrefix="ala.country"
                     />
                 </div>
                 <div class="form-group">
@@ -152,7 +152,7 @@
                               keys="${l.states(country: props?.country ?: 'AT')*.isoCode}"
                               from="${l.states(country: props?.country ?: 'AT')*.name}"
                               noSelection="['':message(code:'createAccount.choseYourStateProvince', default:'- Choose your state -')]"
-                              valueMessagePrefix="ala.state."
+                              valueMessagePrefix="ala.state"
                     />
                 </div>
                 <div class="form-group">
